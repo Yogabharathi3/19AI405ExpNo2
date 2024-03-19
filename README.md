@@ -1,6 +1,6 @@
 <h1>ExpNo 2 : Implement Depth First Search Traversal of a Graph</h1> 
-<h3>Name: Saravanan N</h3>
-<h3>Register Number/Staff Id: TSML006</h3>
+<h3>Name: Yogabharathi S</h3>
+<h3>Register Number:212222230179/h3>
 <H3>Aim:</H3>
 <p> To Implement Depth First Search Traversal of a Graph using Python 3.</p>
 <h3>Theory:</h3>
@@ -53,9 +53,40 @@ Now, the Stack becomes empty, which means we have visited all the nodes, and our
  <li>Find its Successors Or neighbors and Check whether the node is visited or not</li>
  <li>If Not Visited, add it to the STACK. Else Call The Function Again Until No more nodes needs to be visited.</li>
 </ol></B>
-
 <hr>
+<h3>PRROGRAM</h3>
+<hr>
+#exp2 DFS-Depth First Search Transversal<BR>
+#It uses Stack and recursion<BR>
+#1.Construct a graph<BR>
+#2.Get the transversed path from the graph<BR>
+from collections import defaultdict<BR>
+def dfs(graph,start,visited,path):<BR>
+  path.append(start)<BR>
+  visited[start]=True<BR>
+  for neighbour in graph[start]:<BR>
+    if visited[neighbour]==False:<BR>
+      dfs(graph,neighbour,visited,path)<BR>
+      visited[neighbour]=true<BR>
+  return path<BR>
+graph=defaultdict(list)<BR>
+n,e=map(int,input().split())<BR>
+#n=>Number of vertices,e=>number of edges<BR>
+for i in range(e):<BR>
+  u,v=map(str,input().split())<BR>
+  graph[u].append(v)<BR>
+  graph[v].append(u)<BR>
+#print(graph)<BR>
+start=input()<BR>
+visited=defaultdict(bool)<BR>
+path=[]<BR>
+transversedpath=dfs(graph,start,visited,path)<BR>
+
+<BR>print(transversedpath)<BR>
+
+
 <h3>Sample Input</h3>
+<hr>
 <hr>
 8 9 <BR>
 A B <BR>
@@ -71,6 +102,7 @@ F H <BR>
 <h3>Sample Output</h3>
 <hr>
 ['A', 'B', 'E', 'D', 'C', 'G', 'F', 'H']
+
 
 <hr>
 
